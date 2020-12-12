@@ -12,5 +12,13 @@
     "saif shines",
     "saif",
     "saifshines"
-  ]
+  ],
+  "license": "MIT",
+  "main":"index.js",
+  "repository":"Saif-Shines/aquaman",
+  "author": {
+    "name":"Saif Shines",
+    "email":"saif.shines@hey.com",
+    "url":"https://www.linkedin.com/in/saif-shines/"
+  }
 }
