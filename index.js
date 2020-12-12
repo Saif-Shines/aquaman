@@ -30,6 +30,3 @@ ${githubClr(` Github `)}: ${dim(`https://github.com/Saif-Shines`)}
 ${purple(` Blog `)}: ${dim(`https://www.linkedin.com/today/author/saif-shines`)}
 
 `);
-
-log(chalk.green.underline.inverse(`This is green`));
-log();
