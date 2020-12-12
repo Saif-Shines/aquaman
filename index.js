@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const alert = require('cli-alerts-saif');
 const log = console.log;
 const checkNode = require('cli-check-node');
+const unhandled = require('cli-handle-unhandled');
 
 const dim = chalk.dim;
 const italic = chalk.italic;
@@ -18,6 +19,8 @@ const success = chalk.green;
 const warning = chalk.keyword(`orange`);
 const error = chalk.red.bold;
 const info = chalk.blue;
+
+unhandled();
 
 welcome({
   title: `Saif Shines`,
@@ -49,5 +52,7 @@ ${sym.error} ${error(` ERROR `)}: I'm on vacation. Contact me next week.
 `);
 
 checkNode('10');
+
+Promise.reject(new Error('THIS_IS_UNHANDLED'));
 
 //alert({ type: 'success', msg: 'randome message', name: 'wow' });
