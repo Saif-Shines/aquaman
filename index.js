@@ -1,32 +1,27 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk');
-const log = console.log;
 const init = require('./utils/init');
+const handleError = require('cli-handle-error');
 
-const dim = chalk.dim;
-const italic = chalk.italic;
-const twitterClr = chalk.hex(`1da1f2`).bold.inverse;
-const githubClr = chalk.hex(`6cc644`).bold.inverse;
-const purple = chalk.hex(`6937ff`).bold.inverse;
+const alert = require('cli-alerts');
+const data = require('./utils/data');
+const cli = require('./utils/cli');
+const debug = require('./utils/debug');
 
-// Alerts
-const sym = require('log-symbols');
-const info = chalk.blue;
+const input = cli.input;
+const flags = cli.flags;
 
-(function() {
+(async function() {
   init();
+  input.includes('help') && cli.showHelp(0);
 
-  log(`
-${italic(
-    `Half-human, half-Atlantean Arthur is born with the ability to communicate with marine creatures. He goes on a quest to retrieve the legendary Trident of Atlan and protect the water world.`
-  )}
-
-${twitterClr(` Twitter `)}: ${dim(`https://twitter.com/Saif_Shines`)}
-${githubClr(` Github `)}: ${dim(`https://github.com/Saif-Shines`)}
-${purple(` Blog `)}: ${dim(`https://www.linkedin.com/today/author/saif-shines`)}
-
-${sym.info} ${info(`This CLI is Cool`)}
-
-`);
+  console.log(data.bio);
+  if (flags.social) {
+    console.log(data.social);
+  }
+  if (flags.ad) {
+    alert({ type: 'info', msg: data.ad });
+  }
+  // Debug info if needed.
+  debug(flags.debug, cli);
 })();
