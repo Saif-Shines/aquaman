@@ -1,5 +1,4 @@
-const modulesPractice = require('../../modulesPractice');
-
+const boxen = require('boxen');
 const welcome = require('cli-welcome');
 const checkNode = require('cli-check-node');
 const unhandled = require('cli-handle-unhandled');
@@ -21,7 +20,10 @@ module.exports = (minimal, clear) => {
       clear
     });
 
-  minimal && console.log(`Saif Shines`);
+  minimal &&
+    console.log(
+      boxen(`Saif Shines`, { padding: 1, float: `center`, dimBorder: true })
+    );
 
   checkNode('10');
 };

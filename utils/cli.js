@@ -16,6 +16,7 @@ const helpText = `
     ${yellow(`-m, --minimal`)}    Print without Bio
     ${yellow(`--clear`)}          Clear the console ${dim(`DEFAULT: true`)}
     ${yellow(`--no-clear`)}       Don't clear the console
+    ${yellow(`-p, --posts`)}      Prints last 10 posts
   Commands
     ${cyan(`help`)}             Print CLI help info
 
@@ -58,6 +59,11 @@ const options = {
     clear: {
       type: 'boolean',
       default: true
+    },
+    posts: {
+      type: 'boolean',
+      default: false,
+      alias: 'p'
     }
   }
 };

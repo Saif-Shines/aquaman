@@ -20,9 +20,13 @@ const bio = `
   `;
 
 const ad = `Check out more information about CLI on freshworks.dev`;
+const blogName = `Saif's Blog`;
+const blog = `Lastest posts`;
 
 module.exports = {
   bio,
   ad,
-  social
+  social,
+  blog,
+  blogName
 };
