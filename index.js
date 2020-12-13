@@ -15,13 +15,10 @@ const flags = cli.flags;
   init(flags.minimal);
   input.includes('help') && cli.showHelp(0);
 
-  console.log(data.bio);
-  if (flags.social) {
-    console.log(data.social);
-  }
-  if (flags.ad) {
-    alert({ type: 'info', msg: data.ad });
-  }
+  flags.bio && console.log(data.bio);
+  flags.social && console.log(data.social);
+  flags.ad && alert({ type: 'info', msg: data.ad });
+  
   // Debug info if needed.
   debug(flags.debug, cli);
 })();
