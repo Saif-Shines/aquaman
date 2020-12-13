@@ -1,22 +1,23 @@
 const meow = require('meow');
-const { green, yellow, cyan } = require('chalk');
+const { green, yellow, cyan, dim } = require('chalk');
 
 const helpText = `
   Usage
     ${green(`npx saif`)} ${yellow(`[--option]`)} ${cyan(`<command>`)}
 
   Options
-    ${yellow(`--bio`)}            Print the bio info
+    ${yellow(`--bio`)}            Print the bio info ${dim(`DEFAULT: true`)}
     ${yellow(`--no-bio`)}         Don't Print the bio info
-    ${yellow(`social`)}           Print the social info
+    ${yellow(`social`)}           Print the social info ${dim(`DEFAULT: true`)}
     ${yellow(`--no-social`)}      Don't Print the social info
-    ${yellow(`ad`)}               Print the ad info
+    ${yellow(`ad`)}               Print the ad info ${dim(`DEFAULT: true`)}
     ${yellow(`--no-ad`)}          Don't Print the ad info
-    ${yellow(`-d, --debug`)}      Debug information
-    ${yellow(`-m, --minimal`)}      Debug information
-
+    ${yellow(`-d, --debug`)}      Debug info
+    ${yellow(`-m, --minimal`)}    Print without Bio
+    ${yellow(`--clear`)}          Clear the console ${dim(`DEFAULT: true`)}
+    ${yellow(`--no-clear`)}       Don't clear the console
   Commands
-    ${cyan(`help`)}             Print CLI help information
+    ${cyan(`help`)}             Print CLI help info
 
 
   Examples
@@ -53,6 +54,10 @@ const options = {
       type: 'boolean',
       default: false,
       alias: 'v'
+    },
+    clear: {
+      type: 'boolean',
+      default: true
     }
   }
 };

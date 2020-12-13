@@ -12,13 +12,13 @@ const input = cli.input;
 const flags = cli.flags;
 
 (async function() {
-  init(flags.minimal);
+  init(flags.minimal, flags.clear);
   input.includes('help') && cli.showHelp(0);
 
   flags.bio && console.log(data.bio);
   flags.social && console.log(data.social);
   flags.ad && alert({ type: 'info', msg: data.ad });
-  
+
   // Debug info if needed.
   debug(flags.debug, cli);
 })();
