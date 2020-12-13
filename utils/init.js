@@ -6,10 +6,10 @@ const unhandled = require('cli-handle-unhandled');
 
 const pkgJSON = require('./../package.json');
 
-module.exports = () => {
+module.exports = (minimal) => {
   unhandled();
 
-  welcome({
+  !minimal && welcome({
     title: `Saif Shines`,
     tagLine: `Howdy, nice to meet ya!`,
     description: pkgJSON.description,
@@ -19,6 +19,8 @@ module.exports = () => {
     bold: true,
     clear: true
   });
+
+  minimal && console.log(`Saif Shines`)
 
   checkNode('10');
 };

@@ -12,7 +12,7 @@ const input = cli.input;
 const flags = cli.flags;
 
 (async function() {
-  init();
+  init(flags.minimal);
   input.includes('help') && cli.showHelp(0);
 
   console.log(data.bio);

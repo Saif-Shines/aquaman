@@ -1,22 +1,41 @@
 const meow = require('meow');
+const { green, yellow, cyan } = require('chalk');
 
 const helpText = `
   Usage
-    npx saif [options]
+    ${green(`npx saif`)} ${yellow(`[--option]`)} ${cyan(`<command>`)}
 
   Options
-    social           Show the social info
-    --no-social      Don't Show the social info
-    ad               Show the ad info
-    --no-ad          Don't show the ad info
-    -d, --debug      Debug information
+    ${yellow(`--bio`)}            Print the bio info
+    ${yellow(`--no-bio`)}         Don't Print the bio info
+    ${yellow(`social`)}           Print the social info
+    ${yellow(`--no-social`)}      Don't Print the social info
+    ${yellow(`ad`)}               Print the ad info
+    ${yellow(`--no-ad`)}          Don't Print the ad info
+    ${yellow(`-d, --debug`)}      Debug information
+    ${yellow(`-m, --minimal`)}      Debug information
+
+  Commands
+    ${cyan(`help`)}             Print CLI help information
+
 
   Examples
-    npx awais --no-social
+    ${green(`npx awais`)} ${yellow(`--social`)}
+    ${green(`npx awais`)} ${yellow(`--no-ad`)}
 `;
 
 const options = {
+  inferType: true,
+  hardRejection: false,
   flags: {
+    minimal: {
+      type: 'boolean',
+      alias: 'm'
+    },
+    bio: {
+      type: 'boolean',
+      default: true
+    },
     social: {
       type: 'boolean',
       default: true
@@ -29,6 +48,11 @@ const options = {
       type: 'boolean',
       default: false,
       alias: 'd'
+    },
+    version: {
+      type: 'boolean',
+      default: false,
+      alias: 'v'
     }
   }
 };
